@@ -1,4 +1,7 @@
+
 # list-gitlab-users
+
+A web-app using [Vue](https://vuejs.org) + [Vuetify](https://vuetifyjs.com) and the [Gitlab GraphQL API](https://docs.gitlab.com/ee/api/graphql).
 
 ## Project setup
 ```
@@ -13,14 +16,4 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```

@@ -1,31 +1,64 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="white"
+      flat
+    >
+      <v-tabs
+        centered
+        color="grey darken-1"
+      >
+        <v-tab
+          v-for="(link, index) in links"
+          :key="index"
+          :to="link.to"
+        >
+          {{ link.text }}
+        </v-tab>
+      </v-tabs>
+    </v-app-bar>
+
+    <v-main class="grey lighten-3">
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            sm="8"
+            offset-sm="2"
+          >
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+              class="pa-11"
+            >
+              <router-view></router-view>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+export default {
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  name: 'App',
+
+  data: () => ({
+    links: [
+      {
+        to: '/project/create',
+        text: 'Create Project',
+      },
+      {
+        to: '/projects',
+        text: 'Projects',
+      },
+    ],
+  }),
+
+};
+</script>
